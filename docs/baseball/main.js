@@ -25,6 +25,7 @@ let bally;
 let ballspeed;
 let strike;
 let delay;
+let rando;
 function update() {
   if (!ticks) {
     ballx = 20;
@@ -84,7 +85,19 @@ function update() {
     ballx = 20;
   } else {
     if(delay == 0){
-      ballx += ballspeed;
+      rando = rndi(1,3)
+      if(rando == 1)
+      {
+        ballx += ballspeed;
+      }
+      if(rando == 2)
+      {
+        ballx += ballspeed+1;
+      }
+      if(rando == 3)
+      {
+        ballx += ballspeed-1;
+      }
     }
   }
 }
