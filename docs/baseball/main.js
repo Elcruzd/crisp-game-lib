@@ -25,6 +25,7 @@ let bally;
 let ballspeed;
 let strike;
 let delay;
+let path;
 function update() {
   if (!ticks) {
     ballx = 20;
@@ -32,6 +33,7 @@ function update() {
     ballspeed = 0.7;
     strike = 0;
     delay = 0;
+    path = 0;
   }
 
   //Strike display
@@ -74,7 +76,9 @@ function update() {
       }
     }
     ballx = 20;
+    bally = 80;
     //Remove delay
+    path = rndi(0,2);
     delay = 10;
   }
   //Move ball across the screen
@@ -84,6 +88,16 @@ function update() {
     ballx = 20;
   } else {
     if(delay == 0){
+      switch(path){
+        case 0:
+          break;
+        case 1:
+          if(ballx < 50)
+            bally += ballspeed/60 * 10;
+          else
+            bally -= ballspeed/60 * 10;
+        
+      }
       ballx += ballspeed;
     }
   }
