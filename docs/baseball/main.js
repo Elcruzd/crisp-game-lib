@@ -96,7 +96,6 @@ function update() {
             bally += ballspeed/60 * 10;
           else
             bally -= ballspeed/60 * 10;
-        
       }
       ballx += ballspeed;
     }
