@@ -65,7 +65,7 @@ function update() {
   if(input.isJustPressed){
     if(ballx >= 70 && ballx <= 80){
       //Increase score, speed, and reset position
-      score++;
+      score+= 1 + (ballspeed);
       ballspeed += 0.1;
     } else {
       //Increase strike and reduce ball speed by 1 (min 0.7)
@@ -78,7 +78,7 @@ function update() {
     ballx = 20;
     bally = 80;
     //Remove delay
-    path = rndi(0,2);
+    path = rndi(0,3);
     delay = 10;
   }
   //Move ball across the screen
@@ -96,6 +96,13 @@ function update() {
             bally += ballspeed/60 * 10;
           else
             bally -= ballspeed/60 * 10;
+          break;
+        case 2:
+          if(ballx < 50)
+            bally -= ballspeed/60 * 10;
+          else
+            bally += ballspeed/60 * 10;
+          break;
       }
       ballx += ballspeed;
     }
