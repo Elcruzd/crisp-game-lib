@@ -147,16 +147,16 @@ function update() {
     }
   });
   color("black");
-  // if (
-  //   char(
-  //     input.isPressed ? "b" : addWithCharCode("a", floor(ticks / 20) % 2),
-  //     player.pos
-  //   ).isColliding.rect.red ||
-  //   player.pos.x < -2
-  // ) {
-  //   play("explosion");
-  //   end();
-  // }
+  if (
+    char(
+      input.isPressed ? "b" : addWithCharCode("a", floor(ticks / 20) % 2),
+      player.pos
+    ).isColliding.rect.red ||
+    player.pos.x < -2
+  ) {
+    play("explosion");
+    end();
+  }
   color("transparent");
   remove(shots, (s) => {
     return box(s.pos, 5, 9).isColliding.rect.red;
