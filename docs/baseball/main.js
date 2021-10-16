@@ -150,11 +150,13 @@ function update() {
   char('e', G.WIDTH - 80, G.HEIGHT - 21, { color: "black"});
 }
 
+// display text
 function textUI() {
   color("black");
   text(`STRIKE: `, 40, 10);
 }
 
+// draw baseball field
 function fieldDisplay() {
   color("yellow");
   rect(0, 20, 100, 100);
