@@ -116,7 +116,6 @@ function update() {
     }
     ballx = 20;
     bally = 80;
-    //Remove delay
     path = rndi(0,3);
     delay = 10;
   }
