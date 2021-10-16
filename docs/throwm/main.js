@@ -102,53 +102,53 @@ function update() {
     });
     nextEnemyTicks = rnd(50, 60) / difficulty / sqrt(difficulty);
   }
-  remove(enemies, (e) => {
-    e.pos.y += e.vy;
-    let isHit = false;
-    if (e.isFalling) {
-      e.vy += 0.1;
-    } else {
-      e.fireTicks--;
-      if (e.fireTicks < 0) {
-        bullets.push(vec(e.pos));
-        e.fireTicks = e.fireInterval;
-      }
-      color(e.color);
-      if (char("c", e.pos.x, e.pos.y - 6).isColliding.char.e) {
-        isHit = true;
-      }
-    }
-    color("black");
-    if (
-      char("b", e.pos, { mirror: { y: e.isFalling ? -1 : 1 } }).isColliding.char
-        .e &&
-      !e.isFalling
-    ) {
-      isHit = true;
-    }
-    if (isHit) {
-      play("powerUp");
-      particle(e.pos.x, e.pos.y - 6);
-      e.isFalling = true;
-      addScore(multiplier, e.pos);
-      multiplier *= 2;
-    }
-    return e.pos.y > 105;
-  });
+  // remove(enemies, (e) => {
+  //   e.pos.y += e.vy;
+  //   let isHit = false;
+  //   if (e.isFalling) {
+  //     e.vy += 0.1;
+  //   } else {
+  //     e.fireTicks--;
+  //     if (e.fireTicks < 0) {
+  //       bullets.push(vec(e.pos));
+  //       e.fireTicks = e.fireInterval;
+  //     }
+  //     color(e.color);
+  //     if (char("c", e.pos.x, e.pos.y - 6).isColliding.char.e) {
+  //       isHit = true;
+  //     }
+  //   }
+  //   color("black");
+  //   if (
+  //     char("b", e.pos, { mirror: { y: e.isFalling ? -1 : 1 } }).isColliding.char
+  //       .e &&
+  //     !e.isFalling
+  //   ) {
+  //     isHit = true;
+  //   }
+  //   if (isHit) {
+  //     play("powerUp");
+  //     particle(e.pos.x, e.pos.y - 6);
+  //     e.isFalling = true;
+  //     addScore(multiplier, e.pos);
+  //     multiplier *= 2;
+  //   }
+  //   return e.pos.y > 105;
+  // });
   const bs = difficulty * 0.5;
-  color("black");
-  remove(bullets, (b) => {
-    b.x += bs;
-    const c = char("d", b).isColliding;
-    if (c.char.e) {
-      play("hit");
-      particle(b);
-      addScore(multiplier, b);
-      multiplier++;
-      return true;
-    }
-    return b.x > 103 || c.rect.light_black;
-  });
+  // color("black");
+  // remove(bullets, (b) => {
+  //   b.x += bs;
+  //   const c = char("d", b).isColliding;
+  //   if (c.char.e) {
+  //     play("hit");
+  //     particle(b);
+  //     addScore(multiplier, b);
+  //     multiplier++;
+  //     return true;
+  //   }
+  //   return b.x > 103 || c.rect.light_black;
+  // });
   player.pos.y += player.vy * difficulty * 0.5;
   if (
     (player.pos.y < 19 && player.vy < 0) ||
