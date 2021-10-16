@@ -82,6 +82,7 @@ function update() {
   //3 strikes
   if(strike >= 3){
     end();
+    play("powerUp");
   }
 
   //Delay before next pitch
@@ -159,10 +160,15 @@ function textUI() {
 function fieldDisplay() {
   color("yellow");
   rect(0, 20, 100, 100);
+
   color("white");
   rect(wrap(25, 0, 100), 2, 10, 30);
   rect(wrap(25, -10, 110), 70, 2, 15);
   rect(wrap(90, -10, 110), 75, 8, 10);
+  line(100, 75, 10, 3, 4);
+  line(10, 155, 100, 85, 4);
+  line(35, 15, -50, 85, 4);
+
   color("black");
   box(wrap(80, -10, 50), 25, 2, 1);
   box(wrap(50, -10, 100), 30, 2, 1);
