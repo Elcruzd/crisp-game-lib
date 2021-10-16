@@ -103,12 +103,8 @@ function update() {
   if(input.isJustPressed){
     if(ballx >= 70 && ballx <= 80){
       //Increase score, speed, and reset position
-<<<<<<< HEAD
-      score++;
-      play("coin");
-=======
       score+= 1 + (ballspeed);
->>>>>>> 82c2227be3aaa0229b37f8283e6d182d97d3f3f4
+      play("coin");
       ballspeed += 0.1;
     } else {
       //Increase strike and reduce ball speed by 1 (min 0.7)
